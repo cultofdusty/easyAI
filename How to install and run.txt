@@ -16,9 +16,6 @@ To start Easy Diffusion in the future, please run the same command mentioned abo
 
 
 If you have any problems, please:
-1. Try the troubleshooting steps at https://github.com/easydiffusion/easydiffusion/wiki/Troubleshooting
-2. Or, seek help from the community at https://discord.com/invite/u9yhsFmEkB
-3. Or, file an issue at https://github.com/easydiffusion/easydiffusion/issues
-
+1. Try the troubleshooting steps at https://github.com/deepakstark01/tanmayModel
 Thanks
 cmdr2 (and contributors to the project)
