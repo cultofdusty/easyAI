@@ -10,8 +10,8 @@ if [ -f "on_sd_start.bat" ]; then
     echo It looks like you\'re trying to run the installation script from a source code
     echo download. This will not work.
     echo
-    echo Recommended: Please close this window and download the installer from
-    echo https://easydiffusion.github.io/docs/installation/
+    echo Recommended: Please close this window and download the installer again
+    # echo https://easydiffusion.github.io/docs/installation/
     echo
     echo ================================================================================
     echo

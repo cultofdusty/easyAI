@@ -1,6 +1,6 @@
 @echo off
 
-@echo. & echo "Easy Diffusion - v3" & echo.
+@echo. & echo "EasyAI - v3" & echo.
 
 set PATH=C:\Windows\System32;%PATH%
 
@@ -42,7 +42,7 @@ if "%update_branch%"=="" (
 
 @>nul findstr /m "sd_ui_git_cloned" scripts\install_status.txt
 @if "%ERRORLEVEL%" EQU "0" (
-    @echo "Easy Diffusion's git repository was already installed. Updating from %update_branch%.."
+    @echo "EasyAI's git repository was already installed. Updating from %update_branch%.."
 
     @cd sd-ui-files
 
@@ -54,13 +54,13 @@ if "%update_branch%"=="" (
 
     @cd ..
 ) else (
-    @echo. & echo "Downloading Easy Diffusion..." & echo.
+    @echo. & echo "Downloading EasyAI..." & echo.
     @echo "Using the %update_branch% channel" & echo.
 
-    @call git clone -b "%update_branch%" https://github.com/easydiffusion/easydiffusion.git sd-ui-files && (
+    @call git clone -b "%update_branch%" https://github.com/cultofdusty/easyAI.git sd-ui-files && (
         @echo sd_ui_git_cloned >> scripts\install_status.txt
     ) || (
-        @echo "Error downloading Easy Diffusion. Sorry about that, please try to:" & echo "  1. Run this installer again." & echo "  2. If that doesn't fix it, please try the common troubleshooting steps at https://github.com/easydiffusion/easydiffusion/wiki/Troubleshooting" & echo "  3. If those steps don't help, please copy *all* the error messages in this window, and ask the community at https://discord.com/invite/u9yhsFmEkB" & echo "  4. If that doesn't solve the problem, please file an issue at https://github.com/easydiffusion/easydiffusion/issues" & echo "Thanks!"
+        @echo "Error downloading EasyAI. Sorry about that, please try to:" & echo "  1. Run this installer again." & echo "  2. If that doesn't fix it, please try the common troubleshooting steps at https://github.com/easydiffusion/easydiffusion/wiki/Troubleshooting" & echo "  3. If those steps don't help, please copy *all* the error messages in this window, and ask the community at https://discord.com/invite/u9yhsFmEkB" & echo "  4. If that doesn't solve the problem, please file an issue at https://github.com/easydiffusion/easydiffusion/issues" & echo "Thanks!"
         pause
         @exit /b
     )

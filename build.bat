@@ -2,7 +2,7 @@
 setlocal enabledelayedexpansion
 
 @echo "Hi there, what you are running is meant for the developers of this project, not for users." & echo.
-@echo "If you only want to use Easy Diffusion, you've downloaded the wrong file."
+@echo "If you only want to use EasyAI, you've downloaded the wrong file."
 @echo "Please download and follow the instructions at https://github.com/easydiffusion/easydiffusion#installation" & echo.
 @echo "If you are actually a developer of this project, please type Y and press enter" & echo.
 
@@ -54,7 +54,7 @@ pause
 @rem STEP 3: Download the packages and create a working installation
 
 cd /d "%OUT_DIR%\"
-start "Install Easy Diffusion" /D "%OUT_DIR%" "Start Stable Diffusion UI.cmd"
+start "Install EasyAI" /D "%OUT_DIR%" "Start Stable Diffusion UI.cmd"
 
 echo ----
 echo Installation in progress (in a new window). Once complete, verify the installation, then press Enter to create an installer from these files, or close to quit.

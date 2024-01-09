@@ -15,9 +15,7 @@ fail() {
 
 Error downloading Stable Diffusion UI. Sorry about that, please try to:
  1. Run this installer again.
- 2. If that doesn't fix it, please try the common troubleshooting steps at https://github.com/easydiffusion/easydiffusion/wiki/Troubleshooting
- 3. If those steps don't help, please copy *all* the error messages in this window, and ask the community at https://discord.com/invite/u9yhsFmEkB
- 4. If that doesn't solve the problem, please file an issue at https://github.com/easydiffusion/easydiffusion/issues
+ 2. Please contact support.
 
 Thanks!
 
