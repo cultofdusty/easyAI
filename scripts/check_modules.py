@@ -264,7 +264,7 @@ def launch_uvicorn():
         f.write("sd_weights_downloaded\n")
         f.write("sd_install_complete\n")
 
-    print("\n\nEasy Diffusion installation complete, starting the server!\n\n")
+    print("\n\nEasyAI installation complete, starting the server!\n\n")
 
     os.environ["PYTORCH_ENABLE_MPS_FALLBACK"] = "1"
     if os_name == "Windows":

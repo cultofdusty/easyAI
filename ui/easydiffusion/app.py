@@ -164,7 +164,7 @@ def getConfig(default_val=APP_CONFIG_DEFAULTS):
             setConfig(config)
 
             with open(config_json_path + ".txt", "w") as f:
-                f.write("Moved to config.yaml inside the Easy Diffusion folder. You can open it in any text editor.")
+                f.write("Moved to config.yaml inside the EasyAI folder. You can open it in any text editor.")
             os.remove(config_json_path)
 
             return getConfig(default_val)
@@ -322,10 +322,10 @@ def open_browser():
     Console().print(
         Panel(
             "\n"
-            + "[white]Easy Diffusion is ready to serve requests.\n\n"
+            + "[white]EasyAI is ready to serve requests.\n\n"
             + "A new browser tab should have been opened by now.\n"
             + f"If not, please open your web browser and navigate to [bold yellow underline]http://localhost:{port}/\n",
-            title="Easy Diffusion is ready",
+            title="EasyAI is ready",
             style="bold yellow on blue",
         )
     )
@@ -334,8 +334,9 @@ def open_browser():
 def fail_and_die(fail_type: str, data: str):
     suggestions = [
         "Run this installer again.",
-        "If those steps don't help, please copy *all* the error messages in this window, and ask the community at https://discord.com/invite/u9yhsFmEkB",
-        "If that doesn't solve the problem, please file an issue at https://github.com/easydiffusion/easydiffusion/issues",
+        "Contact the support team."
+        # "If those steps don't help, please copy *all* the error messages in this window, and ask the community at https://discord.com/invite/u9yhsFmEkB",
+        # "If that doesn't solve the problem, please file an issue at https://github.com/easydiffusion/easydiffusion/issues",
     ]
 
     if fail_type == "model_download":
@@ -345,7 +346,7 @@ def fail_and_die(fail_type: str, data: str):
             "If that doesn't fix it, please try to download the file manually. The address to download from, and the destination to save to are printed above this message.",
         )
     else:
-        fail_label = "Error while installing Easy Diffusion"
+        fail_label = "Error while installing EasyAI"
 
     msg = [f"{fail_label}. Sorry about that, please try to:"]
     for i, suggestion in enumerate(suggestions):

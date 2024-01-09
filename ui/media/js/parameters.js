@@ -262,9 +262,9 @@ var PARAMETERS = [
         id: "cloudflare",
         type: ParameterType.custom,
         label: "Cloudflare tunnel",
-        note: `<span id="cloudflare-off">Create a VPN tunnel to share your Easy Diffusion instance with your friends. This will
-               generate a web server address on the public Internet for your Easy Diffusion instance. </span>
-               <div id="cloudflare-on" class="displayNone"><div>This Easy Diffusion server is available on the Internet using the
+        note: `<span id="cloudflare-off">Create a VPN tunnel to share your EasyAI instance with your friends. This will
+               generate a web server address on the public Internet for your EasyAI instance. </span>
+               <div id="cloudflare-on" class="displayNone"><div>This EasyAI server is available on the Internet using the
                address:</div><div><input id="cloudflare-address" value="" readonly><button id="copy-cloudflare-address">Copy</button></div></div>
                <b>Anyone knowing this address can access your server.</b> The address of your server will change each time
                you share a session.<br>
@@ -708,7 +708,7 @@ async function getSystemInfo() {
 
             getParameterSettingsEntry("use_cpu").addEventListener("click", function() {
                 alert(
-                    "Sorry, we could not find a compatible graphics card! Easy Diffusion supports graphics cards with minimum 2 GB of RAM. " +
+                    "Sorry, we could not find a compatible graphics card! EasyAI supports graphics cards with minimum 2 GB of RAM. " +
                         "Only NVIDIA cards are supported on Windows. NVIDIA and AMD cards are supported on Linux.<br/><br/>" +
                         "If you have a compatible graphics card, please try updating to the latest drivers.<br/><br/>" +
                         "Only the CPU can be used for generating images, without a compatible graphics card.",

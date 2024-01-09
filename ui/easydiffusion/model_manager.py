@@ -273,7 +273,7 @@ def make_model_folders():
                     + f"Error while creating the models directory: '{model_dir_path}'\n"
                     + f"Error: {e}\n\n"
                     + f"[white]Check the 'models_dir:' line in the file '{os.path.join(app.ROOT_DIR, 'config.yaml')}'.[/white]\n",
-                    title="Fatal Error starting Easy Diffusion",
+                    title="Fatal Error starting EasyAI",
                     style="bold yellow on red",
                 )
             )

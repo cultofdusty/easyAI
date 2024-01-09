@@ -2,7 +2,7 @@
     LoRA Prompt Parser 1.0
     by Patrice
 
-    Copying and pasting a prompt with a LoRA tag will automatically select the corresponding option in the Easy Diffusion dropdown and remove the LoRA tag from the prompt. The LoRA must be already available in the corresponding Easy Diffusion dropdown (this is not a LoRA downloader).
+    Copying and pasting a prompt with a LoRA tag will automatically select the corresponding option in the EasyAI dropdown and remove the LoRA tag from the prompt. The LoRA must be already available in the corresponding EasyAI dropdown (this is not a LoRA downloader).
 */
 (function() {
     "use strict"

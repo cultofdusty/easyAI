@@ -179,7 +179,7 @@ function loadSettings() {
         CURRENTLY_LOADING_SETTINGS = false
     } else if (localStorage.length < 2) {
         // localStorage is too short for OldSettings
-        // So this is likely the first time Easy Diffusion is running.
+        // So this is likely the first time EasyAI is running.
         // Initialize vram_usage_level based on the available VRAM
         function initGPUProfile(event) {
             if (

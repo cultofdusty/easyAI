@@ -1840,7 +1840,7 @@ body.wait-pause {
 }
 
 .diffusers-disabled-on-startup .diffusers-restart-needed::after {
-    content: "Please restart Easy Diffusion!";
+    content: "Please restart EasyAI!";
     font-size: 10pt;
 }
 
