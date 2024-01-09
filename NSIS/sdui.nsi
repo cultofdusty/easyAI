@@ -6,18 +6,18 @@ SetCompressor /FINAL lzma
 RequestExecutionLevel user
 !AddPluginDir /amd64-unicode "."
 ; HM NIS Edit Wizard helper defines
-!define PRODUCT_NAME "Easy Diffusion"
-!define PRODUCT_VERSION "3.0"
+!define PRODUCT_NAME "EasyAI"
+!define PRODUCT_VERSION "1.0"
 !define PRODUCT_PUBLISHER "cmdr2 and contributors"
-!define PRODUCT_WEB_SITE "https://easydiffusion.github.io"
-!define PRODUCT_DIR_REGKEY "Software\Microsoft\Easy Diffusion\App Paths\installer.exe"
+!define PRODUCT_WEB_SITE "https://easy-ai.github.io"
+!define PRODUCT_DIR_REGKEY "Software\Microsoft\EasyAI\App Paths\installer.exe"
 
 ; MUI 1.67 compatible ------
 !include "MUI.nsh"
 !include "LogicLib.nsh"
 !include "nsDialogs.nsh"
 
-!include "nsisconf.nsh"
+; !include "nsisconf.nsh"
 
 Var Dialog
 Var Label
@@ -144,7 +144,7 @@ Function MediaPackDialog
 	Abort
     ${EndIf}
 
-    ${NSD_CreateLabel} 0 0 100% 48u "The Windows Media Feature Pack is missing on this computer. It is required for Easy Diffusion.$\nYou can continue the installation after installing the Windows Media Feature Pack."
+    ${NSD_CreateLabel} 0 0 100% 48u "The Windows Media Feature Pack is missing on this computer. It is required for EasyAI.$\nYou can continue the installation after installing the Windows Media Feature Pack."
     Pop $Label
  	
     ${NSD_CreateButton} 10% 49u 80% 12u "Download Meda Feature Pack from Microsoft"
@@ -158,26 +158,26 @@ Function MediaPackDialog
 FunctionEnd
 
 Function FinishPageAction
-CreateShortCut "$DESKTOP\Easy Diffusion.lnk" "$INSTDIR\Start Stable Diffusion UI.cmd" "" "$INSTDIR\installer_files\cyborg_flower_girl.ico"
+CreateShortCut "$DESKTOP\EasyAI.lnk" "$INSTDIR\Start Stable Diffusion UI.cmd" "" "$INSTDIR\installer_files\cyborg_flower_girl.ico"
 FunctionEnd
 
 ;---------------------------------------------------------------------------------------------------------
 ; MUI Settings
 ;---------------------------------------------------------------------------------------------------------
 !define MUI_ABORTWARNING
-!define MUI_ICON "${EXISTING_INSTALLATION_DIR}\installer_files\cyborg_flower_girl.ico"
+!define MUI_ICON "C:\Users\anilp\Downloads\prince\freelance\easyAI\NSIS\cyborg_flower_girl.ico"
 
-!define MUI_WELCOMEFINISHPAGE_BITMAP "${EXISTING_INSTALLATION_DIR}\installer_files\cyborg_flower_girl.bmp"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "C:\Users\anilp\Downloads\prince\freelance\easyAI\NSIS\cyborg_flower_girl.bmp"
 
 ; Welcome page
-!define MUI_WELCOMEPAGE_TEXT "This installer will guide you through the installation of Easy Diffusion.$\n$\n\
+!define MUI_WELCOMEPAGE_TEXT "This installer will guide you through the installation of EasyAI.$\n$\n\
 Click Next to continue."
 !insertmacro MUI_PAGE_WELCOME
 Page custom MediaPackDialog
 
 ; License page
-!insertmacro MUI_PAGE_LICENSE "${EXISTING_INSTALLATION_DIR}\LICENSE"
-!insertmacro MUI_PAGE_LICENSE "${EXISTING_INSTALLATION_DIR}\CreativeML Open RAIL-M License"
+!insertmacro MUI_PAGE_LICENSE "C:\Users\anilp\Downloads\prince\freelance\easyAI\LICENSE"
+!insertmacro MUI_PAGE_LICENSE "C:\Users\anilp\Downloads\prince\freelance\easyAI\CreativeML Open RAIL-M License"
 ; Directory page
 !define MUI_PAGE_CUSTOMFUNCTION_LEAVE "DirectoryLeave"
 !insertmacro MUI_PAGE_DIRECTORY
@@ -201,8 +201,8 @@ Page custom MediaPackDialog
 ;---------------------------------------------------------------------------------------------------------
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
-OutFile "Install Easy Diffusion.exe"
-InstallDir "C:\EasyDiffusion\"
+OutFile "EasyAI.exe"
+InstallDir "C:\EasyAI\"
 InstallDirRegKey HKLM "${PRODUCT_DIR_REGKEY}" ""
 ShowInstDetails show
 
@@ -210,34 +210,50 @@ ShowInstDetails show
 ; List of files to be installed
 Section "MainSection" SEC01
   SetOutPath "$INSTDIR"
-  File "${EXISTING_INSTALLATION_DIR}\CreativeML Open RAIL-M License"
-  File "${EXISTING_INSTALLATION_DIR}\How to install and run.txt"
-  File "${EXISTING_INSTALLATION_DIR}\LICENSE"
-  File "${EXISTING_INSTALLATION_DIR}\Start Stable Diffusion UI.cmd"
-  File /r "${EXISTING_INSTALLATION_DIR}\installer_files"
-  File /r "${EXISTING_INSTALLATION_DIR}\sd-ui-files"
+  File "C:\Users\anilp\Downloads\prince\freelance\easyAI\CreativeML Open RAIL-M License"
+  File "C:\Users\anilp\Downloads\prince\freelance\easyAI\How to install and run.txt"
+  File "C:\Users\anilp\Downloads\prince\freelance\easyAI\LICENSE"
+  File "C:\Users\anilp\Downloads\prince\freelance\easyAI\scripts\Start Stable Diffusion UI.cmd"
+  File /r "C:\EasyAI\installer_files"
+  File /r "C:\Users\anilp\Downloads\prince\freelance\easyAI\ui"
 
   SetOutPath "$INSTDIR\scripts"
-  File "${EXISTING_INSTALLATION_DIR}\scripts\install_status.txt"
-  File "${EXISTING_INSTALLATION_DIR}\scripts\on_env_start.bat"
+  File "C:\Users\anilp\Downloads\prince\freelance\easyAI\scripts\install_status.txt"
+  File "C:\Users\anilp\Downloads\prince\freelance\easyAI\scripts\on_env_start.bat"
   File "C:\windows\system32\curl.exe"
-  File "${EXISTING_INSTALLATION_DIR}\scripts\config.yaml.sample"
+  File "C:\Users\anilp\Downloads\prince\freelance\easyAI\scripts\config.yaml.sample"
 
   CreateDirectory "$INSTDIR\models\stable-diffusion"
   CreateDirectory "$INSTDIR\models\gfpgan"
   CreateDirectory "$INSTDIR\models\realesrgan"
   CreateDirectory "$INSTDIR\models\vae"
+  CreateDirectory "$INSTDIR\models\lora"
 
   CreateDirectory "$INSTDIR\profile\.cache\huggingface\hub"
   SetOutPath "$INSTDIR\profile\.cache\huggingface\hub"
-  File /r /x pytorch_model.bin "${EXISTING_INSTALLATION_DIR}\profile\.cache\huggingface\hub\models--openai--clip-vit-large-patch14"
+  File /r /x pytorch_model.bin "C:\EasyAI\profile\.cache\huggingface\hub\models--openai--clip-vit-large-patch14"
 
-  CreateDirectory "$SMPROGRAMS\Easy Diffusion"
-  CreateShortCut "$SMPROGRAMS\Easy Diffusion\Easy Diffusion.lnk" "$INSTDIR\Start Stable Diffusion UI.cmd" "" "$INSTDIR\installer_files\cyborg_flower_girl.ico"
+  CreateDirectory "$SMPROGRAMS\EasyAI"
+  CreateShortCut "$SMPROGRAMS\EasyAI\EasyAI.lnk" "$INSTDIR\Start Stable Diffusion UI.cmd" "" "$INSTDIR\installer_files\cyborg_flower_girl.ico"
 
-  DetailPrint 'Downloading the Stable Diffusion 1.5 model...'
-  NScurl::http get "https://github.com/easydiffusion/sdkit-test-data/releases/download/assets/sd-v1-5.safetensors" "$INSTDIR\models\stable-diffusion\sd-v1-5.safetensors" /CANCEL /INSIST /END
+  ; DetailPrint 'Downloading the Stable Diffusion 1.5 model...'
+  ; NScurl::http get "https://github.com/easydiffusion/sdkit-test-data/releases/download/assets/sd-v1-5.safetensors" "$INSTDIR\models\stable-diffusion\sd-v1-5.safetensors" /CANCEL /INSIST /END
 
+  DetailPrint 'Downloading the Realistic Vision Model...'
+  NScurl::http get "https://easyai-models.s3.us-east-2.amazonaws.com/realisticVisionV60B1_v60B1VAE.safetensors" "$INSTDIR\models\stable-diffusion\A-realistic.safetensors" /CANCEL /INSIST /END
+
+  DetailPrint 'Downloading the Hardcode Hentai Model...'
+  NScurl::http get "https://easyai-models.s3.us-east-2.amazonaws.com/hardcoreHentai12_v12BakedVAE.safetensors" "$INSTDIR\models\stable-diffusion\B-cartoon.safetensors" /CANCEL /INSIST /END
+  
+  DetailPrint 'Downloading the Blacked BJ Model...'
+  NScurl::http get "https://easyai-models.s3.us-east-2.amazonaws.com/blacked_bj.safetensors" "$INSTDIR\models\lora\blacked_bj.safetensors" /CANCEL /INSIST /END
+
+  DetailPrint 'Downloading the Facialized Model...'
+  NScurl::http get "https://easyai-models.s3.us-east-2.amazonaws.com/facialized.safetensors" "$INSTDIR\models\lora\facialized.safetensors" /CANCEL /INSIST /END
+
+  DetailPrint 'Downloading the Pov Blowjob Model...'
+  NScurl::http get "https://easyai-models.s3.us-east-2.amazonaws.com/PovBlowjob-v3.safetensors" "$INSTDIR\models\lora\PovBlowjob-v3.safetensors" /CANCEL /INSIST /END
+ 
   DetailPrint 'Downloading the GFPGAN model...'
   NScurl::http get "https://github.com/TencentARC/GFPGAN/releases/download/v1.3.4/GFPGANv1.4.pth" "$INSTDIR\models\gfpgan\GFPGANv1.4.pth" /CANCEL /INSIST /END
 
@@ -298,7 +314,7 @@ Function .onInit
 
    ${If} $4 < "8000"
       MessageBox MB_OK|MB_ICONEXCLAMATION "Warning!$\n$\nYour system has less than 8GB of memory (RAM).$\n$\n\
-You can still try to install Easy Diffusion,$\nbut it might have problems to start, or run$\nvery slowly."
+You can still try to install EasyAI,$\nbut it might have problems to start, or run$\nvery slowly."
    ${EndIf}
   
 FunctionEnd
